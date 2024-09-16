@@ -2,9 +2,11 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container my-5">
+    <div class="container  my-5">
+        <div class="col-12">
+            <h1>MAGAZZINO FUMETTI</h1>
+        </div>
 
-        <h1>il mio magazzino fumetti</h1>
 
     </div>
 @endsection
