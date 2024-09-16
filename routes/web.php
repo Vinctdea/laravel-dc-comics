@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,5 @@ Route::get('/', function () {
     $text = 'Lorem ipsum dolor sit s.';
     return view('home', compact('text', 'title'));
 })->name('home');
+
+Route::resource('comics', ComicController::class);
