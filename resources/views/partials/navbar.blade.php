@@ -8,6 +8,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="{{ route('comics.index') }}">Fumetti</a>
+                <a class="nav-link" href="{{ route('comics.create') }}">Aggiungi fumetto</a>
+
 
             </div>
         </div>

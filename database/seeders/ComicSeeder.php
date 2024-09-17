@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Comic;
 use Illuminate\Support\Str;
+use App\Functions\Helper;
 
 class ComicSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class ComicSeeder extends Seeder
             $new_comic = new Comic();
             $new_comic->title = $comic['title'];
             $new_comic->description = $comic['description'];
-            $new_comic->slug = $this->generateSlug($new_comic->title);
+            $new_comic->slug = Helper::generateSlug($new_comic->title, Comic::class);
             $new_comic->thumb = $comic['thumb'];
             $new_comic->price = $comic['price'];
             $new_comic->series = $comic['series'];
@@ -28,28 +29,5 @@ class ComicSeeder extends Seeder
             $new_comic->type = $comic['type'];
             $new_comic->save();
         }
-    }
-
-    private function generateSlug($string)
-    {
-
-        $slug = Str::slug($string, '-');
-        $original_slug = $slug;
-
-        // se trovo uno slug esistente $exists non sarà null
-        $exists = Comic::where('slug', $slug)->first();
-
-        // inizializzo un contatore
-        $c = 1;
-
-        // ciglo fino a quano exists non diventa null
-        // queso ciclo partirà solo se lo slug è presnte
-        while ($exists) {
-            $slug = $original_slug . '-' . $c;
-            $exists = Comic::where('slug', $slug)->first();
-            $c++;
-        }
-
-        return $slug;
     }
 }
