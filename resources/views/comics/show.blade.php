@@ -9,8 +9,8 @@
             @csrf
             @method('DELETE')
             <button class="btn btn-danger d-inline my-5" type="submit">Elimina</button>
-
         </form>
+        <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">modifica</a>
 
         <div class="row bg-black p-5 justify-content-center">
             <div class="col-12 py-5 ">

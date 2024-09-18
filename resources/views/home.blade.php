@@ -31,6 +31,12 @@
                             <td>
                                 <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">info</a>
                                 <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">modifica</a>
+                                <form action="{{ route('comics.destroy', $comic) }}" method="POST"
+                                    onsubmit="return confirm('vuoi veramente eliminare questo elemento')" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger d-inline my-5" type="submit">Elimina</button>
+                                </form>
 
                             </td>
 
