@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('slug', 50)->unique();
             $table->string('thumb', 250);
             $table->string('price', 250);
-            $table->string('series', 250);
-            $table->date('sale_date');
-            $table->string('type');
+            $table->string('series', 250)->nullable();
+            $table->date('sale_date')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

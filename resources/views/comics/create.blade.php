@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Prezzo</label>
-                <input type="text" class="form-control" id="price" placeholder="Prezzo">
+                <input type="text" class="form-control" name="price" id="price" placeholder="Prezzo">
             </div>
             <button type="submit" class="btn btn-success">Aggiungi</button>
             <button type="reset" class="btn btn-success">Annulla</button>
