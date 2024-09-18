@@ -4,6 +4,13 @@
     <div class="container my-5">
         <h1>{{ $comic->title }}</h1>
         <div><a class="btn btn-success" href="{{ route('comics.index') }}"> INDIETRO </a></div>
+        <form action="{{ route('comics.destroy', $comic) }}" method="POST"
+            onsubmit="return confirm('vuoi veramente eliminare questo elemento')">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit">Elimina</button>
+        </form>
+
         <div class="row bg-black">
             <div class="col-12">
                 {{ $comic->description }}
