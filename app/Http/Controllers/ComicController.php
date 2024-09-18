@@ -33,14 +33,23 @@ class ComicController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
+        $request->validate(
+            [
 
-            'title' => 'min:3|required|max:250',
-            'thumb' => 'min:3|required|max:250',
-            'price' => 'min:3|required|max:250',
+                'title' => 'required|min:3|max:250',
+                'thumb' => 'required|min:3|max:250',
+                'price' => 'required|min:3|max:250',
+            ],
+            [
+                'title.required' => 'campo Titolo obbligatorio',
+                'title.min' => 'Il titolo deve contenere alemo :min caratteri',
+                'thumb.required' => 'campo URL obbligatorio',
+                'thumb.min' => 'Il campo deve contenere alemo :min caratteri',
+                'price.required' => 'campo Prezzo obbligatorio',
+                'price.min' => 'Il campo deve contenere alemo :min caratteri',
 
-
-        ]);
+            ]
+        );
 
 
 
