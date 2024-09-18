@@ -30,6 +30,8 @@
                             <td>{{ $comic->price }}</td>
                             <td>
                                 <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">info</a>
+                                <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">modifica</a>
+
                             </td>
 
 

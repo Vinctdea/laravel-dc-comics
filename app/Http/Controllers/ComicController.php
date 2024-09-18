@@ -61,6 +61,7 @@ class ComicController extends Controller
 
         $data = $request->all();
 
+
         $new_comic = new Comic();
         $new_comic->title = $data['title'];
         $new_comic->description = $data['description'];
@@ -104,6 +105,7 @@ class ComicController extends Controller
         } else {
             $data['slug'] = Helper::generateSlug($data['title'], Comic::class);
         }
+
 
         $comic->update($data);
 
