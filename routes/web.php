@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComicController;
+use App\Http\Controllers\PageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,6 @@ use App\Http\Controllers\ComicController;
 |
 */
 
-Route::get('/', function () {
-    $title = 'Layout base - HOME';
-    $text = 'Lorem ipsum dolor sit s.';
-    return view('home', compact('text', 'title'));
-})->name('home');
+Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::resource('comics', ComicController::class);
