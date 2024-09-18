@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container d-flex my-5 flex-wrap  justify-content-betweenr ">
+        @if (session('deleted'))
+            <div class="alert alert-success" role="alert">
+                {{ session('deleted') }}
+            </div>
+        @endif
+
         <div class="col-12">
             <h1>MAGAZZINO FUMETTI</h1>
         </div>
