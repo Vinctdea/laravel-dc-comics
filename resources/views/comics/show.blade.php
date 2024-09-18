@@ -9,6 +9,7 @@
             @csrf
             @method('DELETE')
             <button class="btn btn-danger d-inline my-5" type="submit">Elimina</button>
+
         </form>
 
         <div class="row bg-black p-5 justify-content-center">

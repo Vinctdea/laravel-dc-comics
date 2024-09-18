@@ -15,7 +15,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderBY('id', 'desc')->get();
         return view('comics.index', compact('comics'));
     }
 
@@ -43,10 +43,16 @@ class ComicController extends Controller
             [
                 'title.required' => 'campo Titolo obbligatorio',
                 'title.min' => 'Il titolo deve contenere alemo :min caratteri',
+                'title.max' => 'Il titolo deve contenere massimo :max caratteri',
+
                 'thumb.required' => 'campo URL obbligatorio',
                 'thumb.min' => 'Il campo deve contenere alemo :min caratteri',
+                'thumb.max' => 'Il titolo deve contenere massimo :max caratteri',
+
                 'price.required' => 'campo Prezzo obbligatorio',
                 'price.min' => 'Il campo deve contenere alemo :min caratteri',
+                'price.max' => 'Il titolo deve contenere massimo :max caratteri',
+
 
             ]
         );
@@ -80,7 +86,9 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comic = Comic::find($id);
+
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -88,7 +96,18 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        $comic = Comic::Find($id);
+
+        if ($data['title'] === $comic->title) {
+            $data['slug'] = $comic->slug;
+        } else {
+            $data['slug'] = Helper::generateSlug($data['title'], Comic::class);
+        }
+
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
