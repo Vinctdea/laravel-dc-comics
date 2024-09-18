@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Comic;
+use App\Http\Controllers\ComicController;
 
 
 

@@ -3,18 +3,22 @@
 
 @section('content')
     <div class="container  my-5">
-        <div class="col-12">
+
+        <div class="col-12 m-5 ">
             <h1>MAGAZZINO FUMETTI</h1>
         </div>
+
         <div class="col-12 m-5 p-5 bg-black">
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">id</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Categoria</th>
-                        <th scope="col">prezzo</th>
+                        <th scope="col">Prezzo</th>
+                        <th scope="col">Dettagli</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +28,10 @@
                             <td>{{ $comic->title }}</td>
                             <td>{{ $comic->type }}</td>
                             <td>{{ $comic->price }}</td>
+                            <td>
+                                <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">info</a>
+                            </td>
+
 
                         </tr>
                     @endforeach

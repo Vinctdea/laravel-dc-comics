@@ -3,7 +3,23 @@
 @section('content')
     <div class="container py-5 my-5 bg-black">
         <h1>Aggiungi un fumetto</h1>
+
+        {{-- controllo errori --}}
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        {{-- bottoni --}}
         <div><a class="btn btn-success" href="{{ route('comics.index') }}"> INDIETRO </a></div>
+
+
+        {{-- form --}}
         <form class="py-5" action="{{ route('comics.store') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -25,7 +41,7 @@
                 <input type="text" class="form-control" name="price" id="price" placeholder="Prezzo">
             </div>
             <button type="submit" class="btn btn-success">Aggiungi</button>
-            <button type="reset" class="btn btn-success">Annulla</button>
+            <button type="reset" class="btn btn-danger">Annulla</button>
 
         </form>
 
